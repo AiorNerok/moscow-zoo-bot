@@ -2,7 +2,7 @@
 
 ### [aiogram](https://surik00.gitbooks.io/aiogram-lessons/content/)
 ### [Brif](https://held-education-b1d.notion.site/5f7fc3ff12fd41ca8105f9068a2434f3)
-
+### [Excalidraw](https://excalidraw.com/#json=oJX4MdbLUMlPr0xqA9FJQ,f1tugQDwc7XDMYhv5OQg8w)
 
 # Tasks
 * Запуск бота
