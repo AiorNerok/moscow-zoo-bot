@@ -10,8 +10,3 @@ def home_kb() -> ReplyKeyboardMarkup:
     builder.row(KeyboardButton(text="ЧАВО"))
     
     return  builder.as_markup(resize_keyboard=True)
-
-def club_friends_kb()->ReplyKeyboardBuilder:
-    kb=[[InlineKeyboardButton(text="Узнать по подробнее", url="https://www.justbenice.ru/work/moscowzoo/")]]
-    
-    return InlineKeyboardMarkup(inline_keyboard=kb)
