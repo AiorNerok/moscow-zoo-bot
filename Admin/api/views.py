@@ -1,8 +1,17 @@
-from django.shortcuts import render
+from ninja import NinjaAPI
+from .models import Animals
+from random import choice
+from ninja import Schema
 
-from rest_framework.response import Response
-from rest_framework.decorators import api_view
+api = NinjaAPI()
 
-@api_view()
-def ping():
-    return Response({"ping":"pong"})
+class RandomAnimalsSchema(Schema):
+    name: str
+    src: str
+    link_to_more_info: str
+
+@api.get('/', response=RandomAnimalsSchema)
+def randomAnimals(_):
+    res = choice(Animals.objects.all())
+    
+    return res
