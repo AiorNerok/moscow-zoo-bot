@@ -1,0 +1,29 @@
+version: '3'
+services:
+  db:
+    image: postgres:14-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+
+  admin:
+    image: adminer
+    restart: always
+    depends_on: 
+      - db
+    ports:
+      - 8080:8080
+
+  # django:
+  #   build: ./Admin
+  #   container_name: django
+  #   command: python /usr/src/app/Admin/manage.py runserver 0.0.0.0:8000
+  #   volumes:
+  #     - .:/usr/src/app
+  #   ports:
+  #     - 8000:8000
+  #   depends_on:
+  #     - db

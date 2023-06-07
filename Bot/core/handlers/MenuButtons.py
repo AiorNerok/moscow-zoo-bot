@@ -1,6 +1,6 @@
 from aiogram import Router, F, Router
 from aiogram.types import Message, BufferedInputFile
-from aiogram.filters import Command 
+from aiogram.filters import Command, Text
 
 from PIL import Image
 from pyzbar import pyzbar
@@ -25,10 +25,10 @@ async def QRCode(message: Message):
 @router.message(Command('help'))
 async def answer_help_request(message: Message):
     await message.answer("""
-    simple description commands
+    Описание быстрых команд
     
-    */map* \- send map mosckow zoo
-    */*
+    */map* \- Получить карту Московского Зоопарка
+    */events* \- Получить последние события
     """, parse_mode="MarkdownV2")
 
 @router.message(Command('map'))
@@ -38,3 +38,12 @@ async def show_map(message: Message):
             BufferedInputFile(photo_map.read(), filename='map.jpg'),
             caption="Карта Московского Зоопарка"
         )
+
+@router.message(Command('events'))
+async def last_events(message: Message):
+    await message.answer('Последние события')
+
+@router.message(F.text())
+async def feedback(message: Message):
+    print('feedback')
+    await message.answer('Обратная связь')
